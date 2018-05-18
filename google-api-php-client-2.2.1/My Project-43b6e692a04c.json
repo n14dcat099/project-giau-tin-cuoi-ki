@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "lucid-copilot-204311",
+  "private_key_id": "43b6e692a04ccdcd33432801b8175c4bc15c003a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC87QVt2qF6wB6C\nwytTZhQBzQY//ggZ40djp8SlgzVqx1N5lWA7Vvvnco3vZ8SIO1lantOTS6y4R/B0\n1q4IaZN1kvjLBT8Gk/0e7ubsDW3Wk8kr1UQnlcoIahw5bLD0f9t8ffJfjqTJO8q/\nHsa0HCNU8ulQvUlTEBWtUZa9g23cUQAa2Dt3X9d9ORElJnisgOGWRPke+9VNzeHf\nZcVbmVWbnzz5bYkjXco3v5fRclQehu7FDkIileEj823uCafLLkTjyzZ1OZVxR8LX\nSH5+9uj4yp0Mcs+kSvxHnaTtlTGtkPOjbtGFcwNW40fU39htc8b4AWNBMFx6SKqE\nuDwDmCXjAgMBAAECggEAVSZ3BfY+RbcFiWYxxtsBNXaU1I7IU/KuIGpjJT4n+0Jv\niyMaRmSEEOL+ueKJH+Wv9joTnhXDeSNjayW/NqdvANUHMWnh6DMXKLQAfG/pC4d8\najcrCrRmZLh+lBs6/lgKMugJL6x49QHv9YgHgvITspvxMKS/waJEQuO9DxmHkH5i\nMu95xXPf7cryf99di8ZNip7Cm11vZP0vm3RNZsEEqCOBi4rfzO4IrluRP4TQvfI6\nEFyTNevtgE6MV1Yk2ldUhveXTlchDhizswjKkPPXZ6OAEmLkL+HjOAE7p2wPweyh\nQbE9xJMprPIeqCagzJeuTeH48VTY+qwaBuMY5hF6UQKBgQD0kmDWqYJA5vr2CWhe\nnKWDOPNisOseRvN0E5dFdTt+PzB/RhyEzfJWBaapP6oKP5nV7R0qgxrI3CfoUoAj\nsIf68QHwu8M+p2UPXJfHfnqQ5qF3VyH39+Nutw+11LrQsYTdv1RC1Twj2QUB6Hkc\nYKBrhIfbj0qdmq/2HBrJmJRrzQKBgQDFwP58Wjx13SoDgp5i57sd4CH/CYM/stUM\n4N4k+diNCrh2rPOPUPL4rEwRyCy3mm7FB8tX6LSYbP4UEs41HFRPi2hXKaQ+X02m\ntOjcoqfHaMBnIFM6w1GiPp1URITTyP8TOAdbPmlCdzJTxUkaa8ZiSMeX7NnRQE8D\ndWoxflsIbwKBgE5m0lZeNpw5r3/J2kRiMQjU6+jaUDT/h7HRSfABOdYpyZEzV5cX\nMjVzUE73UrpAUz9p6KylJKP5N23ZbKyEPcMrGXUjq95c6R+4jgtstzvWQzKvovsL\n40OtuYKPtGeMUMyJNijKlKHlQx6ueIypSSPOc4Ll94R4fyoFLm0r1YCNAoGAcWbB\nCPJ+JWDUjPrEdRdKGFHFbQk5eLfGsQHqoe2cnxT8vyFi8laLXsr/PFs8OXWX++kC\nVMEffyFRepVmJtK+Dnd1ODaq9xGT5/tqZcvoxtNtMjY5RENpds7NTduVCBYFIDJL\nFanulqzf8WX7C+mt9AKkYpzyM6rbJLKaWROKhIUCgYEAqxyiTfSL8+YoqLz9E/la\nTqDXL3vZpPQ8DXraUDQ9odfcAUMtjFxYRpYwvHqN1lKY1MU3yfQSF7bS+LzinvEp\nD8POjSLkFs4iA6fdHOyEkEyK7o0qmBULRCU5Zuef8kLYInI77tg7PrUp3AlPEd+8\nfRi58KFpn82bbjeKhL7uuoI=\n-----END PRIVATE KEY-----\n",
+  "client_email": "stegwebclone@lucid-copilot-204311.iam.gserviceaccount.com",
+  "client_id": "112759471690999276786",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/stegwebclone%40lucid-copilot-204311.iam.gserviceaccount.com"
+}
