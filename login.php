@@ -1,7 +1,41 @@
 <?php
+    include('header.php');
+    if(isset($_SESSION["isLogin"]))
+    {
+        header("Location: index.php ");
+        exit();        
+    }
+
     if (isset($_POST['submit']))
     {
-        die("ok");
+        $username = $_POST['uname'];
+        $password = $_POST['psw'];
+        if(empty($username) || empty($password))
+        {
+            echo "<script>alert('username and password is empty')</script>";
+        }
+        else
+        {
+            $sql = 'SELECT username,password FROM Users WHERE username=? AND password=?';
+            $query = $conn->prepare($sql);
+            $query->bind_param('ss',$username,$password);
+            $query->execute();
+            $res=$query->get_result();
+            /*die(var_dump($res));*/
+            if($res->num_rows!=1)
+            {
+                echo "<script>alert('username and password are invaild')</script>";
+                
+            }
+            else 
+            {     
+                $_SESSION['isLogin'] = true;
+                $_SESSION['username'] = $username;
+                header("Location: index.php");
+                exit();
+            }
+
+        }
     }
 ?>
 
