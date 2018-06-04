@@ -37,8 +37,8 @@ def recover_embedded_file(encoded_signal, hidden_data_dest):
     f.write(wm_str)
 
 
-input = "/home/hasagi/Desktop/lsb/main project/hasagi signed.wav"
-pre_mess=recover_lsb_watermark(input)
+inputt = "/var/www/html/project-giau-tin-cuoi-ki/local-musics/Snowbird.wav_enc"
+pre_mess=recover_lsb_watermark(inputt)
 mess = watermark_to_string(pre_mess)
 print mess
 

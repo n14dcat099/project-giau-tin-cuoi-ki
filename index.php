@@ -1,5 +1,3 @@
-
-
 <?php
   include('header.php');
   $res = "";
@@ -9,7 +7,6 @@
     $output = shell_exec('python unhide_lsb.py '.$file);
     $res = $output;
   }
-
 ?>
 <!-- beginnig of the testing part -->
 <div class="container">

@@ -61,12 +61,6 @@ def embed_file(cover_audio, hidden_file, output):
 
 
 mess = "this file was signed by Hasagi"
-input_audio = "/home/hasagi/Desktop/lsb/main project/2. Battle Himn of the Republic (American folk song).wav"
-output_audio = "hasagi signed.wav"
-if len(sys.argv) > 1:
-        mess = sys.argv[1]
-        if len(sys.argv) > 2:
-            input_audio = sys.argv[2]
-            if len(sys.argv) > 3:
-                output_audio = sys.argv[3]
+input_audio = "local-musics/"+sys.argv[1]
+output_audio = input_audio + "_enc"
 lsb_watermark(input_audio , mess , output_audio)
