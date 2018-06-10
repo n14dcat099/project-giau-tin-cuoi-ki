@@ -31,6 +31,7 @@
             {     
                 $_SESSION['isLogin'] = true;
                 $_SESSION['username'] = $username;
+                $_SESSION['admin'] = 1;
                 header("Location: index.php");
                 exit();
             }

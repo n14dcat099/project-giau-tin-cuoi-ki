@@ -35,7 +35,7 @@
   		if($_SESSION['isLogin'])
   		{
   			echo "<li class='nav-item'>
-      <a class='nav-link' href='upload.php'>Upload</a>
+      <a class='nav-link' href='authorize.php'>Upload</a>
     </li>
     <li class='nav-item'>
       <a class='nav-link' href='#'>hello ".htmlspecialchars($_SESSION['username'])."</a>

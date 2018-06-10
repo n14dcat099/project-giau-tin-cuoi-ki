@@ -2,9 +2,11 @@
 require_once 'upload/google-api-php-client/src/Google/Client.php';
 require_once 'upload/google-api-php-client/src/Google/Service/Oauth2.php';
 require_once 'upload/google-api-php-client/src/Google/Service/Drive.php';
-session_start();
+include("header.php");
 
 header('Content-Type: text/html; charset=utf-8');
+$SongName = basename($_FILES["file"]["name"]);
+// Init the variables
 $driveInfo = "";
 $folderName = "";
 $folderDesc = "";
@@ -16,8 +18,9 @@ $target_dir = "local-musics/";
 $target_file = $target_dir . basename($_FILES["file"]["name"]);
 if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
     exec("python hide_lsb.py ".basename($_FILES["file"]["name"]));
+    $file_enc = basename($_FILES["file"]["name"])."_enc";
 } else {
-    die("1");
+    die("cec");
 }
 // Get the client Google credentials
 $credentials = $_COOKIE["credentials"];
@@ -47,19 +50,18 @@ $title = $_FILES["file"]["name"];
 $description = "Uploaded from your very first google drive application!";
 
 // Get the folder metadata
-if (!empty($_POST["folderName"]))
-	$folderName = $_POST["folderName"];
-if (!empty($_POST["folderDesc"]))
-	$folderDesc = $_POST["folderDesc"];
+
+	$folderName = "test";
+
+	$folderDesc = "test";
 
 // Call the insert function with parameters listed below
-/*die("local-musics/".basename($_FILES["file"]["name"])."_enc");*/
-$driveInfo = insertFile($service, $title, $description, $mimeType, "local-musics/".basename($_FILES["file"]["name"])."_enc", $folderName, $folderDesc);
+$driveInfo = insertFile($service, $title, $description, $mimeType, "local-musics/".$file_enc, $folderName, $folderDesc);
 
 /**
 * Get the folder ID if it exists, if it doesnt exist, create it and return the ID
 *
-* @param Google_DriveService $service Drive API service instance.s
+* @param Google_DriveService $service Drive API service instance.
 * @param String $folderName Name of the folder you want to search or create
 * @param String $folderDesc Description metadata for Drive about the folder (optional)
 * @return Google_Drivefile that was created or got. Returns NULL if an API error occured
@@ -115,6 +117,19 @@ function getFolderExistsCreate($service, $folderName, $folderDesc) {
  * @return Google_DriveFile The file that was inserted. NULL is returned if an API error occurred.
  */
 
+/**
+ * Insert a new permission.
+ *
+ * @param Google_Service_Drive $service Drive API service instance.
+ * @param String $fileId ID of the file to insert permission for.
+ * @param String $value User or group e-mail address, domain name or NULL for
+                       "default" type.
+ * @param String $type The value "user", "group", "domain" or "default".
+ * @param String $role The value "owner", "writer" or "reader".
+ * @return Google_Servie_Drive_Permission The inserted permission. NULL is
+ *     returned if an API error occurred.
+ */
+
 
 function insertFile($service, $title, $description, $mimeType, $filename, $folderName, $folderDesc) {
 	$file = new Google_Service_Drive_DriveFile();
@@ -134,7 +149,6 @@ function insertFile($service, $title, $description, $mimeType, $filename, $folde
 	try {
 		// Get the contents of the file uploaded
 		$data = file_get_contents($filename);
-		die($filename);
 
 		// Try to upload the file, you can add the parameters e.g. if you want to convert a .doc to editable google format, add 'convert' = 'true'
 		$createdFile = $service->files->insert($file, array(
@@ -142,21 +156,34 @@ function insertFile($service, $title, $description, $mimeType, $filename, $folde
 			'mimeType' => $mimeType,
 			'uploadType'=> 'multipart'
 			));
-
 		// Return a bunch of data including the link to the file we just uploaded
+		$type = "anyone";
+		$role = "reader";
+		$newPermission = new Google_Service_Drive_Permission();
+  		$newPermission->setType($type);
+  		$newPermission->setRole($role);
+		$file_id = $createdFile->id;
+		$service->permissions->insert($file_id, $newPermission);
+		die(var_dump($createdFile));
 		return $createdFile;
 	} catch (Exception $e) {
 		die("An error occurred: " . $e->getMessage());
 	}
 }
-
-	$link = $driveInfo["alternateLink"];
-	$sql = $conn->prepare("INSERT INTO song(song_name,link) VALUES (?,?)");
-	$sql->bind_param("ss",$song_name,$link);
+	$link = "https://drive.google.com/uc?id=".$driveInfo["id"]."&export=download";
+	$sql = $conn->prepare("INSERT INTO Songs(SongName,link,Watermark) VALUES (?,?,?)");
+	$sql->bind_param("sss",$SongName,$link,$file_enc);
 	$sql->execute();
 	$sql->close();
 	$conn->close();
 	echo "<script>alert('upload successfully, redirect to homepage');</script>";
 	header("Location: index.php");
-
 ?>
+
+
+
+
+
+
+
+

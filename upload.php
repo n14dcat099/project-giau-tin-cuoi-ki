@@ -1,5 +1,7 @@
 <?php
 require_once("functions.php");
+/*require_once("lib/permission.php");*/
+
 session_start();
 
 header('Content-Type: text/html; charset=utf-8');
@@ -35,3 +37,5 @@ $userEmail = $_SESSION["userInfo"]["email"];
     </form>
 </body>
 </html>
+
+

@@ -6,7 +6,6 @@ header('Content-Type: text/html; charset=utf-8');
 
 // Get your app info from JSON downloaded from google dev console
 $json = json_decode(file_get_contents("clientID.json"), true);
-
 $CLIENT_ID = $json['web']['client_id'];
 $CLIENT_SECRET = $json['web']['client_secret'];
 $REDIRECT_URI = $json['web']['redirect_uris'][0];
