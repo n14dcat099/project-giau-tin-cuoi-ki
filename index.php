@@ -16,7 +16,7 @@
     $html = "";
     while ( $row = $res->fetch_assoc() )
     {
-      $kq = exec("python hide-lsb.py ".$row["enc_file"]);
+      $kq = exec("python unhide-lsb.py ".$row["enc_file"]);
       $html = $html."<li class='list-group-item'>
   <span>Song name: ".$row["song_name"]."<br/>"."</span>
     <audio controls='controls'>
